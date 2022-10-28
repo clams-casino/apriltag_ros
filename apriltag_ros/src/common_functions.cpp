@@ -398,7 +398,7 @@ AprilTagDetectionArray TagDetector::detectTags (
           tag_transform,
           tag_transform.stamp_,
           image->header.frame_id,
-          tf_prefix_.empty() ? "" : tf_prefix_ + "_" + detection_names[i])
+          (tf_prefix_.empty() ? "" : tf_prefix_ + "_") + detection_names[i])
         );
     }
   }
