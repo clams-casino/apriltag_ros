@@ -3,6 +3,7 @@
   <arg name="node_namespace" />
   <arg name="camera_info_topic" />
   <arg name="image_topic" />
+  <arg name="tf_prefix" default="" />
 
   <!-- Set parameters -->
   <rosparam command="load" file="$(find apriltag_ros)/config/settings.yaml" ns="$(arg node_namespace)" />
@@ -14,5 +15,6 @@
     <remap from="camera_info" to="$(arg camera_info_topic)" />
 
     <param name="publish_tag_detections_image" type="bool" value="true" />      <!-- default: false -->
+    <param name="tf_prefix" type="str" value="$(arg tf_prefix)" />
   </node>
 </launch>

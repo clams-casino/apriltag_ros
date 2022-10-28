@@ -53,7 +53,8 @@ TagDetector::TagDetector(ros::NodeHandle pnh) :
     refine_edges_(getAprilTagOption<int>(pnh, "tag_refine_edges", 1)),
     debug_(getAprilTagOption<int>(pnh, "tag_debug", 0)),
     max_hamming_distance_(getAprilTagOption<int>(pnh, "max_hamming_dist", 2)),
-    publish_tf_(getAprilTagOption<bool>(pnh, "publish_tf", false))
+    publish_tf_(getAprilTagOption<bool>(pnh, "publish_tf", false)),
+    tf_prefix_(getAprilTagOption<std::string>(pnh, "tf_prefix", ""))
 {
   // Parse standalone tag descriptions specified by user (stored on ROS
   // parameter server)
@@ -392,10 +393,13 @@ AprilTagDetectionArray TagDetector::detectTags (
       pose.header = tag_detection_array.detections[i].pose.header;
       tf::Stamped<tf::Transform> tag_transform;
       tf::poseStampedMsgToTF(pose, tag_transform);
-      tf_pub_.sendTransform(tf::StampedTransform(tag_transform,
-                                                 tag_transform.stamp_,
-                                                 image->header.frame_id,
-                                                 detection_names[i]));
+      tf_pub_.sendTransform(
+        tf::StampedTransform(
+          tag_transform,
+          tag_transform.stamp_,
+          image->header.frame_id,
+          tf_prefix_.empty() ? "" : tf_prefix_ + "_" + detection_names[i])
+        );
     }
   }
 

@@ -183,6 +183,7 @@ class TagDetector
   bool remove_duplicates_;
   bool run_quietly_;
   bool publish_tf_;
+  std::string tf_prefix_;
   tf::TransformBroadcaster tf_pub_;
 
  public:
