@@ -1,0 +1,26 @@
+<launch>
+
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
+    <arg name="color_width" value="640" />
+    <arg name="color_height" value="480" />
+    <arg name="color_fps" value="30" />
+  </include>
+
+  <include file="$(find apriltag_ros)/launch/continuous_detection.launch" >
+    <arg name="node_namespace" value="opc_detector" />
+    <arg name="image_topic" value="/camera/color/image_raw" />
+    <arg name="camera_info_topic" value="/camera/color/camera_info" />
+  </include>
+
+    <include file="$(find apriltag_ros)/launch/continuous_detection.launch" >
+    <arg name="node_namespace" value="robot_detector" />
+    <arg name="image_topic" value="/wide_angle_camera_front/image_mono" />
+    <arg name="camera_info_topic" value="/wide_angle_camera_front/camera_info" />
+    <arg name="tf_prefix" value="robot" />
+  </include>
+
+  
+  <!-- Add static TF publishers here -->
+  <node pkg="tf" type="static_transform_publisher" name="measure_doorway_center" args="0 -1.85 0 -3.1416 0 1.5708 tag_door_panel_center door_base 1" />
+  <node pkg="tf" type="static_transform_publisher" name="measure_door_handle" args="-0.42 -0.82 0.035 0 0 0 tag_door_panel_center door_handle 1" />
+</launch>
