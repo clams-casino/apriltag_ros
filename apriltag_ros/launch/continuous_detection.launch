@@ -3,6 +3,7 @@
   <arg name="node_namespace" />
   <arg name="camera_info_topic" />
   <arg name="image_topic" />
+  <arg name="publish_tag_detections_image" default="false"/>
   <arg name="tf_prefix" default="" />
 
   <!-- Set parameters -->
@@ -14,7 +15,7 @@
     <remap from="image_rect" to="$(arg image_topic)" />
     <remap from="camera_info" to="$(arg camera_info_topic)" />
 
-    <param name="publish_tag_detections_image" type="bool" value="true" />      <!-- default: false -->
+    <param name="publish_tag_detections_image" type="bool" value="$(arg publish_tag_detections_image)" />
     <param name="tf_prefix" type="str" value="$(arg tf_prefix)" />
   </node>
 </launch>
