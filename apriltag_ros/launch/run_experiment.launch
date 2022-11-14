@@ -1,22 +1,12 @@
 <launch>
 
-  <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
-    <arg name="color_width" value="1280" />
-    <arg name="color_height" value="720" />
-    <arg name="color_fps" value="30" />
-    <arg name="enable_depth" value="false" />
-  </include>
-
-  <rosparam>
-        /camera/l500_depth_sensor/global_time_enabled: true
-        /camera/motion_module/global_time_enabled: true
-        /camera/rgb_camera/global_time_enabled: true
-  </rosparam>
-
   <include file="$(find apriltag_ros)/launch/continuous_detection.launch" >
     <arg name="node_namespace" value="opc_detector" />
-    <arg name="image_topic" value="/camera/color/image_raw" />
-    <arg name="camera_info_topic" value="/camera/color/camera_info" />
+    <arg name="image_topic" value="/usb_cam/undistorted/image" />
+    <arg name="camera_info_topic" value="/usb_cam/undistorted/camera_info" />
+    <arg name="settings_path" value="$(find apriltag_ros)/config/settings.yaml" />
+    <arg name="tags_path" value="$(find apriltag_ros)/config/experiment_tags.yaml" />
+
     <arg name="publish_tag_detections_image" value="false" />
   </include>
 
