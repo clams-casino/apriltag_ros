@@ -16,10 +16,4 @@
   <!-- Door_handle to the door panel tag -->
   <node pkg="tf" type="static_transform_publisher" name="handle_to_door_tag" args="-0.42 -0.82 0.035 0 0 0 tag_door_panel_center door_handle 1" />
 
-  <!-- Door base to the door panel tag -->
-  <node pkg="tf" type="static_transform_publisher" name=" doorway_center" args="camera_link door_base 1" /> <!-- TODO update with calibration-->
-
-  <!-- Camera's frame to the robot's odom frame -->
-  <node pkg="tf" type="static_transform_publisher" name=" camera_to_odom" args="odom camera_link 1" /> <!-- TODO update with calibration -->
-
 </launch>
