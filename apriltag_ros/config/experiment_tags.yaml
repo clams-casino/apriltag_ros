@@ -21,7 +21,7 @@
 #   ]
 standalone_tags:
   [
-      {id: 1, size: 0.167, name: tag_door_panel_center},
+      {id: 1, size: 0.166, name: tag_door_panel_center},
   ]
 # ## Tag bundle definitions
 # ### Remarks
