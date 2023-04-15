@@ -13,7 +13,21 @@
 
   <!-- Add static TF publishers here -->
 
-  <!-- Door_handle to the door panel tag -->
-  <node pkg="tf" type="static_transform_publisher" name="handle_to_door_tag" args="-0.383 -0.831 0.075 0 0 0 tag_door_panel_center door_handle 1" />
+  <!-- Door_handle to the door panel tag - PULL -->
+  <node pkg="tf" type="static_transform_publisher" name="handle_to_door_tag" args="-0.403 -0.811 0.075 0 0 0 tag_door_panel_center door_handle 1" />
+  <!-- <node pkg="tf" type="static_transform_publisher" name="handle_to_door_tag" args="-0.433 -0.831 0.075 0 0 0 tag_door_panel_center door_handle 1" /> tuning for opening -->
+
+
+  <!-- FAKE door_handle to the door panel tag -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="handle_to_door_tag" args="-0.383 -0.831 0.575 0 0 0 tag_door_panel_center door_handle 1" /> -->
+
+
+  <!-- Door_handle to the door panel tag - PUSH -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="measure_door_handle" args="0.380, -0.834, 0.075 0 0 0 tag_door_panel_center door_handle 1" /> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="measure_door_handle" args="0.360, -0.834, 0.075 0 0 0 tag_door_panel_center door_handle 1" /> -->
+
+
+  <!-- tuning for opening-->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="handle_to_door_tag" args="-0.433 -0.821 0.075 0 0 0 tag_door_panel_center door_handle 1" /> -->
 
 </launch>
