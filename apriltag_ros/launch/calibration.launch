@@ -1,11 +1,12 @@
 <launch>
+  <arg name="tags_path" />
 
   <include file="$(find apriltag_ros)/launch/continuous_detection.launch" >
     <arg name="node_namespace" value="opc_detector" />
     <arg name="image_topic" value="/usb_cam/undistorted/image" />
     <arg name="camera_info_topic" value="/usb_cam/undistorted/camera_info" />
     <arg name="settings_path" value="$(find apriltag_ros)/config/settings.yaml" />
-    <arg name="tags_path" value="$(find apriltag_ros)/config/calibration_tags.yaml" />
+    <arg name="tags_path" value="$(arg tags_path)" />
 
     <arg name="publish_tag_detections_image" value="true" />
   </include>
@@ -15,7 +16,7 @@
     <arg name="image_topic" value="/wide_angle_camera_front/image_mono" />
     <arg name="camera_info_topic" value="/wide_angle_camera_front/camera_info" />
     <arg name="settings_path" value="$(find apriltag_ros)/config/settings.yaml" />
-    <arg name="tags_path" value="$(find apriltag_ros)/config/calibration_tags.yaml" />
+    <arg name="tags_path" value="$(arg tags_path)" />
 
     <arg name="publish_tag_detections_image" value="true" />
     <arg name="tf_prefix" value="robot" />
