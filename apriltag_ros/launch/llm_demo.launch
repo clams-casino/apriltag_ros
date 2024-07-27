@@ -1,0 +1,11 @@
+<launch>
+
+  <arg name="camera_name" default="/wide_angle_camera_front" />
+  <arg name="image_topic" default="image_mono" />
+
+  <include file="$(find apriltag_ros)/launch/continuous_detection.launch">
+    <arg name="camera_name" value="$(arg camera_name)" />
+    <arg name="image_topic" value="$(arg image_topic)" />
+  </include>
+
+</launch>
