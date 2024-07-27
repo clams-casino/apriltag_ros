@@ -21,5 +21,5 @@
 #   ]
 standalone_tags:
   [
-    {id: 1, size:  0.1685, name: huawei_demo_apriltag},
+    {id: 1, size:  0.1685, name: llm_demo_apriltag},
   ]
